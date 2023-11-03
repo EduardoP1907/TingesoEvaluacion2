@@ -1,7 +1,5 @@
 package tingeso_mingeso.backendcuotasservice.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class EstudianteEntity {
+public class Estudiante {
     private String rut;
     private String nombres;
     private String apellidos;

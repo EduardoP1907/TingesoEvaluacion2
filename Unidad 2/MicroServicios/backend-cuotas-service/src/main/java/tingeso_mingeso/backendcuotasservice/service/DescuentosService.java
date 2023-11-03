@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Data
 @Service
-public class AdministracionService {
+public class DescuentosService {
 
     private final int matricula = 70000;
     private final int arancel = 1500000;

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class TipoColegioEntity {
+public class TipoColegio {
 
     @Id
     @NotNull

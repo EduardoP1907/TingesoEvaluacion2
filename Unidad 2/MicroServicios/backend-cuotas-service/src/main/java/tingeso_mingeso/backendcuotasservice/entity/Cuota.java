@@ -1,17 +1,17 @@
 package tingeso_mingeso.backendcuotasservice.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "cuotas")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class CuotasEntity {
+public class Cuota {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
