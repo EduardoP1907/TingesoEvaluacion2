@@ -1,19 +1,29 @@
 import axios from 'axios';
 
-const ESTUDIANTE_API_URL = "http://localhost:8080/estudiante/";
+const ESTUDIANTE_API_URL = "http://localhost:8080/estudiantes/";
 
 class EstudianteService {
 
-    getEstudiantes(){
+    getEstudiantes() {
         return axios.get(ESTUDIANTE_API_URL);
     }
 
-    getEstudianteByRut(rut){
+    getEstudianteByRut(rut) {
         return axios.get(ESTUDIANTE_API_URL + rut);
     }
-    createEstudiante(estudiante){
+
+    createEstudiante(estudiante) {
         return axios.post(ESTUDIANTE_API_URL, estudiante);
     }
+
+    obtenerAnosDesdeEgreso(estudianteId) {
+        return axios.get(ESTUDIANTE_API_URL + estudianteId + '/anos-desde-egreso');
+    }
+
+    obtenerTipoColegioProcedencia(estudianteId) {
+        return axios.get(ESTUDIANTE_API_URL + estudianteId + '/tipo-colegio-procedencia');
+    }
+
 }
 
-export default new EstudianteService()
+export default new EstudianteService();
