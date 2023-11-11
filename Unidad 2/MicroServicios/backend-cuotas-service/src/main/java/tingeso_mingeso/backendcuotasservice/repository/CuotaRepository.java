@@ -11,5 +11,5 @@ import java.util.List;
 
 @Repository
 public interface CuotaRepository extends JpaRepository<Cuota, Long> {
-    List<Cuota> findByEstudiante(Estudiante estudiante);
+    List<Cuota> findByEstudianteId(Estudiante estudianteId);
 }

@@ -126,5 +126,9 @@ public class EstudianteService {
             throw new EstudianteNotFoundException("No se encontró un estudiante con el ID proporcionado.");
         }
     }
+    public double obtenerPromedioNotas(Long estudianteId) {
+        String endpoint = "http://localhost:8080/estudiantes/" + estudianteId + "/promedio-notas";
+        return restTemplate.getForObject(endpoint, Double.class);
+    }
 
 }

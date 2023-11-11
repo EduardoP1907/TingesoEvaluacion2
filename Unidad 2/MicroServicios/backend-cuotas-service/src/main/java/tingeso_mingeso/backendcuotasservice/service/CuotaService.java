@@ -47,8 +47,7 @@ public class CuotaService {
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
             Estudiante estudiante = responseEntity.getBody();
 
-            // Obtener las cuotas del estudiante
-            List<Cuota> cuotasDelEstudiante = cuotaRepository.findByEstudiante(estudiante);
+            List<Cuota> cuotasDelEstudiante = cuotaRepository.findByEstudianteId(estudiante);
             return cuotasDelEstudiante;
         } else {
             throw new EstudianteNotFoundException("No se encontró un estudiante con el ID proporcionado.");
@@ -105,7 +104,7 @@ public class CuotaService {
             cuota.setNumeroCuota((double) i);
             cuota.setFechaVencimiento(fechaVencimiento);
             cuota.setPagada(false);
-            cuota.setEstudiante(estudiante);
+            cuota.setEstudiante(estudianteId);
             cuota.setFechaPago(LocalDate.now());
 
             cuotaRepository.save(cuota);
@@ -140,7 +139,7 @@ public class CuotaService {
         cuotaRepository.save(cuota);
     }
     public List<Cuota> obtenerCuotasPorEstudiante(Estudiante estudiante) {
-        return cuotaRepository.findByEstudiante(estudiante);
+        return cuotaRepository.findByEstudianteId(estudiante);
     }
 
     public Cuota obtenerCuotaPorId(Long cuotaId) {
@@ -151,7 +150,7 @@ public class CuotaService {
         cuotaRepository.save(cuota);
     }
     public List<Cuota> obtenerTodasLasCuotasDelEstudiante(Estudiante estudiante) {
-        return cuotaRepository.findByEstudiante(estudiante);
+        return cuotaRepository.findByEstudianteId(estudiante);
     }
 
     public List<Cuota> obtenerCuotasPendientesPorEstudiante(Estudiante estudiante) {
@@ -201,17 +200,7 @@ public class CuotaService {
             montoArancel -= arancelBase * 0.04;
         }
 
-        double promedioNotas = estudiante.promedioNotas();
-        if (promedioNotas >= 950) {
-            montoArancel *= 0.90;
-        } else if (promedioNotas >= 900) {
-            montoArancel *= 0.95;
-        } else if (promedioNotas >= 850) {
-            montoArancel *= 0.98;
-        }
-
-
-        List<Cuota> cuota = estudiante.getCuotasPagos();
+        List<Cuota> cuota = obtenerCuotasPagos(estudianteId);
         int mesesAtraso = calcularMesesAtraso(cuota);
         if (mesesAtraso > 3) {
             montoArancel *= 1.15;
@@ -268,6 +257,16 @@ public class CuotaService {
         } else {
             throw new EstudianteNotFoundException("No se encontró un estudiante con el ID proporcionado.");
         }
+    }
+    public List<Cuota> obtenerCuotasPagos(Long estudianteId) {
+        String endpoint = "http://localhost:8080/estudiantes/" + estudianteId + "/cuotas-pagos";
+        ResponseEntity<List<Cuota>> response = restTemplate.exchange(
+                endpoint,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<Cuota>>() {}
+        );
+        return response.getBody();
     }
 
 }

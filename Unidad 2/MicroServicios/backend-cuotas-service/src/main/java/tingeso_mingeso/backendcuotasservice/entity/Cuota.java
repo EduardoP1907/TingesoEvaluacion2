@@ -21,7 +21,7 @@ public class Cuota {
     private LocalDate fechaVencimiento;
     private LocalDate fechaPago;
     private boolean pagada;
-    private int  idEstudiante;
+    private Long estudianteId;
 
 
     private int idplanillaPago;
@@ -32,5 +32,8 @@ public class Cuota {
 
     public void setPagada(boolean pagada) {
         this.pagada = pagada;
+    }
+
+    public void setEstudiante(Long estudianteId) {
     }
 }

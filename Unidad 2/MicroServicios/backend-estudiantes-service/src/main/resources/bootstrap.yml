@@ -8,7 +8,7 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   cloud:
     config:
       enabled: true
@@ -16,10 +16,10 @@ spring:
   datasource:
     plataform: postgres
     driver-class-name: org.postgresql.Driver
-    dbname: topEducationEstudiantes
-    url: jdbc:postgresql://localhost:5432/topEducationEstudiantes
+    dbname: TingesoEstudiantes
+    url: jdbc:postgresql://localhost:5432/TingesoEstudiantes
     username: postgres
-    password: Simon_789
+    password: 1234
   servlet:
     multipart:
       max-file-size: 5MB

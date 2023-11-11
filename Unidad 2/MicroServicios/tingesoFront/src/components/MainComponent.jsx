@@ -1,9 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import HeaderComponent from "./Headers/HeaderComponent";
-import "../styles/main.css";
+import { Link, useNavigate } from 'react-router-dom';
+import HeaderComponent from './Headers/HeaderComponent';
+import '../styles/main.css';
 
 const MainComponent = () => {
+  const navigate = useNavigate();
+
+  const redirectToRegistrarEstudiante = () => {
+    navigate('/estudiantes/registro');
+  };
+
   return (
     <div className="container">
       <HeaderComponent></HeaderComponent>
@@ -17,9 +23,9 @@ const MainComponent = () => {
         <button className="buttonStyle">Pagar cuota</button>
       </Link>
 
-      <Link to="/estudiantes/registro">
-        <button className="buttonStyle">Registrar Estudiante</button>
-      </Link>
+      <button className="buttonStyle" onClick={redirectToRegistrarEstudiante}>
+        Registrar Estudiante
+      </button>
 
       <Link to="/planillapago/buscar-estudiante">
         <button className="buttonStyle">Buscar Planilla de Pago</button>
@@ -28,7 +34,9 @@ const MainComponent = () => {
       <h2>Importar Archivo de Notas</h2>
       <form action="/notas-examen/importar" method="post" encType="multipart/form-data">
         <input type="file" name="archivo" accept=".xlsx, .xls" className="buttonStyle" />
-        <button type="submit" className="buttonStyle">Importar</button>
+        <button type="submit" className="buttonStyle">
+          Importar
+        </button>
       </form>
     </div>
   );

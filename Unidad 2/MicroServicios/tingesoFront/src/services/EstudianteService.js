@@ -13,7 +13,7 @@ class EstudianteService {
     }
 
     createEstudiante(estudiante) {
-        return axios.post(ESTUDIANTE_API_URL, estudiante);
+        return axios.post(ESTUDIANTE_API_URL, estudiante + '/registro');
     }
 
     obtenerAnosDesdeEgreso(estudianteId) {

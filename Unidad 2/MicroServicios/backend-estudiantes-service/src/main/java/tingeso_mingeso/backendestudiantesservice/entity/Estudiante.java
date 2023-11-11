@@ -4,10 +4,8 @@ package tingeso_mingeso.backendestudiantesservice.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import tingeso_mingeso.backendestudiantesservice.Model.Cuota;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "estudiantes")
@@ -41,9 +39,6 @@ public class Estudiante {
     private double arancelMensual;
     @Column(nullable = false)
     private int numeroCuotas;
-    @OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL)
-    private List<Cuota> cuotasPagos;
-
 
 
     public String getTipoColegioProcedencia() {

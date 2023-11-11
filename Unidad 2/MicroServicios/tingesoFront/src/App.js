@@ -12,7 +12,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<MainComponent />} />
-                    <Route path="/agregar_estudiante" element={<AgregarEstudianteComponent />} />
+                    <Route path="/estudiantes/registro" element={<AgregarEstudianteComponent />} />
                     <Route path="/lista_estudiantes" element={<ListadoEstudianteComponent />} />
                     <Route path="/generar_cuotas" element={<GenerarCuotasComponent />} />
                 </Routes>

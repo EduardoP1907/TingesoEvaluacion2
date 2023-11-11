@@ -16,10 +16,10 @@ spring:
   datasource:
     plataform: postgres
     driver-class-name: org.postgresql.Driver
-    dbname: topEducationCuotas
-    url: jdbc:postgresql://localhost:5432/topEducationCuotas
+    dbname: TingesoCuotas
+    url: jdbc:postgresql://localhost:5432/TingesoCuotas
     username: postgres
-    password: Simon_789
+    password: 1234
   servlet:
     multipart:
       max-file-size: 5MB

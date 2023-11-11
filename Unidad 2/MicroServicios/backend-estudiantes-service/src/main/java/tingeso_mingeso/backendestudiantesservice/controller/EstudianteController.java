@@ -14,7 +14,7 @@ import tingeso_mingeso.backendestudiantesservice.entity.Estudiante;
 import tingeso_mingeso.backendestudiantesservice.service.EstudianteService;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:3000", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping("/estudiantes")
 public class EstudianteController {
@@ -118,6 +118,16 @@ public class EstudianteController {
         } catch (EstudianteNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
+    }
+    @GetMapping("/{estudianteId}/promedio-notas")
+    public ResponseEntity<Double> obtenerPromedioNotas(@PathVariable Long estudianteId) {
+        // Lógica para obtener el promedio de notas del estudiante con el ID proporcionado
+        // Puedes obtener el estudiante desde la base de datos usando un servicio
+        // Supongamos que tienes un servicio llamado estudianteService
+        Estudiante estudiante = estudianteService.obtenerEstudiantePorId(estudianteId);
+        // Lógica para calcular el promedio de notas del estudiante
+        double promedio = estudianteService.obtenerPromedioNotas(estudianteId);
+        return ResponseEntity.ok(promedio);
     }
 
 }

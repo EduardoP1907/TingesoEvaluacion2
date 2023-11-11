@@ -37,6 +37,6 @@ public class Estudiante {
 
     private int numeroCuotas;
 
-    private List<NotaExamen> notas;
 
     private List<Cuota> cuotasPagos;
+}
