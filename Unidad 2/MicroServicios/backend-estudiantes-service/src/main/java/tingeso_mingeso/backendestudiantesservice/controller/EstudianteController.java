@@ -14,7 +14,6 @@ import tingeso_mingeso.backendestudiantesservice.entity.Estudiante;
 import tingeso_mingeso.backendestudiantesservice.service.EstudianteService;
 
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:3000", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping("/estudiantes")
 public class EstudianteController {
@@ -27,6 +26,10 @@ public class EstudianteController {
         this.estudianteService = estudianteService;
         this.restTemplate = restTemplate;
 
+    }
+    @RequestMapping(method = RequestMethod.OPTIONS)
+    public ResponseEntity handle() {
+        return new ResponseEntity(HttpStatus.OK);
     }
 
 
@@ -62,10 +65,6 @@ public class EstudianteController {
         }
     }
 
-    @GetMapping("registro")
-    public String registro(Model model){
-        return "registro";
-    }
 
     @GetMapping("/buscar-estudiante2")
     public String mostrarBusquedaEstudiante2(Model model) {

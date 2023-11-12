@@ -8,5 +8,5 @@ spring:
       server:
         git:
           default-label: master
-          uri: https://github.com/SimonSaezCorrea/Mingeso-Tingeso-Ayudantia
-          search-paths: "Unidad 2/Aplicación-microservicio-avanzado-postgresql/config-data"
+          uri: https://github.com/EduardoP1907/TingesoEvaluacion2
+          search-paths: "Unidad 2/microServicios/config-data"

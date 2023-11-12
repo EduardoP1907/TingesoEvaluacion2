@@ -41,7 +41,7 @@ function AgregarEstudianteComponent(props){
         setInput({ ...input, anio_egreso: event.target.value });
     };
     const changeTipoColegioHandler = event => {
-        // Al cambiar el tipo de colegio, ajustamos automáticamente el número de cuotas
+        
         const tipoColegio = event.target.value;
         let maxCuotas;
         if (tipoColegio === "Municipal") {
@@ -79,12 +79,12 @@ function AgregarEstudianteComponent(props){
                     rut: input.rut,
                     nombres: input.nombres,
                     apellidos: input.apellidos,
-                    fecha_nacimiento: input.fecha_nacimiento,
-                    tipo_colegio: input.tipo_colegio,
-                    nombre_colegio: input.nombre_colegio,
-                    anio_egreso: input.anio_egreso,
+                    fecha_nacimiento: input.fechaNacimiento,
+                    tipo_colegio: input.tipoColegioDeProcedencia,
+                    nombre_colegio: input.nombreColegio,
+                    anio_egreso: input.anoEgresoColegio,
                     anio_ingreso: "",
-                    numero_cuotas: input.numero_cuotas,
+                    numero_cuotas: input.numeroCuotas,
                 };
                 EstudianteService.createEstudiante(newEstudiante);
                 Swal.fire({

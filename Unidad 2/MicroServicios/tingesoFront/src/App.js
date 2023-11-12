@@ -6,6 +6,7 @@ import AgregarEstudianteComponent from "./components/AgregarEstudianteComponent"
 import ListadoEstudianteComponent from "./components/ListadoEstudianteComponent";
 import GenerarCuotasComponent from "./components/GenerarCuotasComponent";
 
+
 function App() {
     return (
         <div>
