@@ -1,0 +1,35 @@
+.container-2 {
+    margin-top: 20px;
+  }
+  
+  .content-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .content-table th, .content-table td {
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .content-table th {
+    color: white;
+    background-color: #007bff; /* Fondo azul para el encabezado de la columna */
+  }
+  
+  .content-table td {
+    background-color: #f2f2f2; /* Fondo gris claro para las celdas de datos */
+  }
+  
+  .legend-container {
+    margin-top: 20px;
+  }
+  
+  .legend-container h2 {
+    color: #007bff; /* Texto azul para el título de la leyenda */
+  }
+  
+  .legend-container p {
+    margin: 5px 0;
+  }

@@ -18,7 +18,6 @@ spring:
           enabled: true
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
-        - AddResponseHeader=Access-Control-Allow-Origin, Access-Control-Allow-Credentials
       globalcors:
         cors-configurations:
           '[/**]':
@@ -30,7 +29,7 @@ spring:
         - id: backend-estudiantes-service
           uri: lb://backend-estudiantes-service
           predicates:
-            - Path=/estudiantes/**
+            - Path=/estudiante/**
         - id: backend-cuotas-service
           uri: lb://backend-cuotas-service
           predicates:

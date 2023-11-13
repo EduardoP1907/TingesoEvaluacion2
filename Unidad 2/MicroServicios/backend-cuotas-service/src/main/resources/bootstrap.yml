@@ -8,7 +8,7 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   cloud:
     config:
       enabled: true
@@ -16,8 +16,8 @@ spring:
   datasource:
     plataform: postgres
     driver-class-name: org.postgresql.Driver
-    dbname: TingesoCuotas
-    url: jdbc:postgresql://localhost:5432/TingesoCuotas
+    dbname: topEducationCuotas
+    url: jdbc:postgresql://localhost:5432/topEducationCuotas
     username: postgres
     password: 1234
   servlet:
