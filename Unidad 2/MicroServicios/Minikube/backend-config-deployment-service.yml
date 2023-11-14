@@ -15,8 +15,8 @@ spec:
         app: backend-config-deployment
     spec:
       containers:
-        - name: topeducation-config-postgres
-          image: simonsaez/topeducation-config-postgres:latest
+        - name: topeducation-config
+          image: eduardops1907/topeducation-config:latest
           ports:
             - containerPort: 8081
 ---

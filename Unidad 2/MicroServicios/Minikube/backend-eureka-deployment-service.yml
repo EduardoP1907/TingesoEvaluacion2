@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: topeducation-eureka-postgres
-          image: simonsaez/topeducation-eureka-postgres:latest
+          image: eduardops1907/topeducation-eureka:latest
           ports:
             - containerPort: 8081
           env:

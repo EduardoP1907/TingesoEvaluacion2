@@ -15,8 +15,8 @@ spec:
         app: backend-estudiantes-deployment
     spec:
       containers:
-        - name: topeducation-estudiantes-postgres
-          image: simonsaez/topeducation-estudiantes-postgres:latest
+        - name: topeducation-estudiantes
+          image: eduardops1907/topeducation-estudiantes:latest
           ports:
             - containerPort: 8081
           env:

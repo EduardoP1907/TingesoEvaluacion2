@@ -11,7 +11,7 @@ spec:
   accessModes:
       - ReadWriteOnce
   hostPath:
-      path: "/Users/nayxx/docker/postgres/docker-pg-vol/data"
+      path: "/Users/eduar/docker/postgres/docker-pg-vol/data"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

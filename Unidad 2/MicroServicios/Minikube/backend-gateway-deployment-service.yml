@@ -15,8 +15,8 @@ spec:
         app: backend-gateway-deployment
     spec:
       containers:
-        - name: topeducation-gateway-postgres
-          image: simonsaez/topeducation-gateway-postgres:latest
+        - name: topeducation-gateway
+          image: eduardops1907/topeducation-gateway:latest
           ports:
             - containerPort: 8081
           env:

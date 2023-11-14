@@ -1,0 +1,125 @@
+D:
+cd 'C:\Users\eduar\Desktop\Evaluacion 2 Tingeso\Unidad 2\MicroServicios'
+
+cd backend-config-service
+mvn clean install -DskipTests=True
+docker build -t eduardops1907/topeducation-config .
+docker push eduardops1907/topeducation-config
+cd ../
+
+cd backend-eureka-service
+mvn clean install -DskipTests=True
+docker build -t eduardops1907/topeducation-eureka .
+docker push eduardops1907/topeducation-eureka
+cd ../
+
+cd backend-gateway-service
+mvn clean install -DskipTests=True
+docker build -t eduardops1907/topeducation-gateway .
+docker push eduardops1907/topeducation-gateway
+cd ../
+
+cd backend-estudiantes-service
+mvn clean install -DskipTests=True
+docker build -t eduardops1907/topeducation-estudiantes .
+docker push eduardops1907/topeducation-estudiantes
+cd ../
+
+cd backend-cuotas-service
+mvn clean install -DskipTests=True
+docker build -t eduardops1907/topeducation-cuotas .
+docker push eduardops1907/topeducation-cuotas
+cd ../
+
+cd frontend-service
+docker build -t eduardops1907/topeducation-front .
+docker push eduardops1907/topeducation-front
+cd ../
+
+
+---------------------------------------------------------
+
+
+minikube start
+minikube status
+
+cd Minikube
+
+kubectl apply -f frontend-deployment-service.yml
+
+kubectl apply -f postgres-secrets.yml
+kubectl apply -f postgres-configmap.yml
+kubectl apply -f postgres-dp-sv-pvc.yml
+
+kubectl apply -f backend-config-deployment-service.yml
+kubectl apply -f backend-eureka-deployment-service.yml
+
+kubectl apply -f backend-estudiantes-deployment-service.yml
+kubectl apply -f backend-cuotas-deployment-service.yml
+kubectl apply -f backend-gateway-deployment-service.yml
+
+
+---------------------------------------------------------
+
+kubectl delete deployments frontend-deployment
+kubectl delete services frontend-service
+
+kubectl delete deployments postgres
+kubectl delete services postgres
+kubectl delete PersistentVolumeClaims postgres-persistent-volume-claim
+kubectl delete PersistentVolumes postgres-persistent-volume-claim
+
+kubectl delete ConfigMap postgres-config-map
+
+kubectl delete Secret postgres-credentials
+
+kubectl delete deployments backend-config-deployment
+kubectl delete services backend-config-service
+
+kubectl delete deployments backend-eureka-deployment
+kubectl delete services backend-eureka-service
+
+kubectl delete deployments backend-gateway-deployment
+kubectl delete services backend-gateway-service
+
+kubectl delete deployments backend-estudiantes-deployment
+kubectl delete services backend-estudiantes-service
+
+kubectl delete deployments backend-cuotas-deployment
+kubectl delete services backend-cuotas-service
+
+
+---------------------------------------------------------
+
+
+kubectl get pods
+kubectl get services
+kubectl get deployments
+kubectl get persistentvolumeclaims
+kubectl get persistentvolume
+kubectl get configmaps
+kubectl get secrets
+
+kubectl get all
+
+kubectl logs <Name pods>
+kubectl logs <Name pods> -f
+
+kubectl port-forward <nombre-pod> <puerto-local>:<puerto-contenedor>
+
+kubectl exec -it <Name pods postgres> bash -- psql -h postgres -U postgres
+
+CREATE DATABASE topeducationcuotas;
+CREATE DATABASE topeducationestudiantes;
+
+Para visualizar las base de datos
+\l
+
+
+minikube service frontend-service
+minikube tunnel
+
+// Este comando es para abrir una pagina que permite visualizar los pods, services entre otras cosas
+minikube dashboard
+
+postgres-99f956b4f-stzxn

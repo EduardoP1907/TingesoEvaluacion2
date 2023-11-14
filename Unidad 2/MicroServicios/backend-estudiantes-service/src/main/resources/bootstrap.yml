@@ -1,3 +1,9 @@
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://backend-eureka-service:8761/eureka/
 spring:
   devtools:
     restart:
@@ -5,7 +11,8 @@ spring:
   application:
     name: backend-estudiantes-service
   jpa:
-    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgresPlusDialect
+    generate-ddl: true
     show-sql: true
     hibernate:
       ddl-auto: create
@@ -16,11 +23,8 @@ spring:
   datasource:
     plataform: postgres
     driver-class-name: org.postgresql.Driver
-    dbname: topEducationEstudiantes
-    url: jdbc:postgresql://localhost:5432/topEducationEstudiantes
-    username: postgres
-    password: 1234
-  servlet:
-    multipart:
-      max-file-size: 5MB
-      max-request-size: 10MB
+    url: jdbc:postgresql://${POSTGRES_DB_HOST}:5432/${POSTGRES_DB_ESTUDIANTES}?useSSL=false
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    hikari:
+      initialization-fail-timeout: 0
