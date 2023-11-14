@@ -15,7 +15,7 @@ spec:
         app: backend-eureka-deployment
     spec:
       containers:
-        - name: topeducation-eureka-postgres
+        - name: topeducation-eureka
           image: eduardops1907/topeducation-eureka:latest
           ports:
             - containerPort: 8081

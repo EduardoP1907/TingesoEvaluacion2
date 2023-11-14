@@ -18,7 +18,7 @@ function ListadoEstudianteComponent() {
         <div className="general">
             <HeaderComponent />
             <div align="center" className="container-2">
-                <h1><b>Listado de Acopio de Leche</b></h1>
+                <h1><b>Listado de Estudiantes</b></h1>
                 <table className="content-table">
                     <thead>
                         <tr>
